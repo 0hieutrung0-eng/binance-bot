@@ -3,7 +3,7 @@ name: Binance Trading Bot
 on:
   schedule:
     - cron: '*/5 * * * *'  # Chạy tự động mỗi 5 phút
-  workflow_dispatch:        # Cho phép bấm nút chạy thủ công trên GitHub khi cần
+  workflow_dispatch:        # Cho phép chạy thủ công
 
 jobs:
   run-bot:
@@ -24,4 +24,5 @@ jobs:
         env:
           BINANCE_API_KEY: ${{ secrets.BINANCE_API_KEY }}
           BINANCE_API_SECRET: ${{ secrets.BINANCE_API_SECRET }}
+          PROXY_URL: ${{ secrets.PROXY_URL }}
         run: node bot.js
